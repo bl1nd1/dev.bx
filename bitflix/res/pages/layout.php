@@ -16,14 +16,14 @@
 <body>
 
 <div class="wrapper">
-	<?php include "./res/blocks/sidebar.php"; ?>
+	<?php
+	include "./res/blocks/sidebar.php"; ?>
 
-	<div class = "content">
-		<?php include "./res/blocks/searchbar.php";?>
+	<div class="content">
+		<?php
+		include "./res/blocks/searchbar.php"; ?>
 		<?= $content ?>
 	</div>
 </div>
-
-
 </body>
 </html>

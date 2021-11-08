@@ -8,7 +8,7 @@
 	background: #CCCCCC;
 }
 
-.movie-list--item {
+.movie-list-item {
 	display: inline-block;
 	position: relative;
 	width: 370px;
@@ -19,7 +19,7 @@
 	border-radius: 20px;
 }
 
-.movie-list--item-overlay {
+.movie-list-item--overlay {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -35,7 +35,7 @@
 	transition: .3s;
 }
 
-.movie-list--item:hover .movie-list--item-overlay {
+.movie-list-item:hover .movie-list-item--overlay {
 	opacity: 1;
 }
 
@@ -54,7 +54,7 @@
 	text-decoration: none;
 }
 
-.movie-list--item-image {
+.movie-list-item--image {
 	display: block;
 	height: 430px;
 	background: #000;
@@ -62,14 +62,14 @@
 	border-radius: 20px 20px 0 0;
 }
 
-.movie-list--item-main {
+.movie-list-item--main {
 	display: flex;
 	flex-direction: column;
 	max-height: 200px;
 	overflow: hidden;
 }
 
-.movie-list--item-head {
+.movie-list-item--head {
 	display: block;
 	font-family: 'Open Sans', sans-serif;
 	margin: 0 20px;
@@ -77,14 +77,14 @@
 	border-bottom: 1px solid #F2F2F2 ;
 }
 
-.movie-list--item-title {
+.movie-list-item--title {
 	font-weight: 600;
 	font-size: 22px;
 	line-height: 30px;
 	color: #333;
 }
 
-.movie-list--item-subtitle {
+.movie-list-item--subtitle {
 	font-weight: 600;
 	font-size: 14px;
 	line-height: 25px;
@@ -92,7 +92,7 @@
 	margin-bottom: 15px;
 }
 
-.movie-list--item-desc {
+.movie-list-item--description {
 	text-overflow: ellipsis;
 	-webkit-line-clamp: 5;
 	display: -webkit-box;
@@ -107,7 +107,7 @@
 	color: #333;
 }
 
-.movie-list--item-bottom {
+.movie-list-item--bottom {
 	display: flex;
 	position: absolute;
 	bottom: 5px;
@@ -117,7 +117,7 @@
 	white-space: nowrap;
 }
 
-.movie-list--item-time {
+.movie-list-item--time {
 	position: relative;
 	padding-left: 25px;
 	margin-right: 10px;
@@ -126,7 +126,7 @@
 	color: #ccc;
 }
 
-.movie-list--item-time--icon {
+.movie-list-item--time-icon {
 	position: absolute;
 	left: 0;
 	width: 20px;
@@ -135,7 +135,7 @@
 	background-size: cover;
 }
 
-.movie-list--item-genres {
+.movie-list-item--genres {
 	text-transform: uppercase;
 	font-weight: 600;
 	font-size: 10px;

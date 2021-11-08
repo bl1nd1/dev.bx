@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare(strict_types = 1);
 /** @var array $genres */
 /** @var array $movies */
 /** @var array $config */
@@ -10,7 +10,6 @@ require_once "./data/movies.php";
 require_once "./lib/template-functions.php";
 
 $currentPage = "./res/pages/main.php";
-$result = '';
 $currentMenuItem = $_GET['menuItem'] ?? 'main';
 $genre = array_key_exists($currentMenuItem, $genres) ? $genres[$currentMenuItem] : '';
 $isFavorite = $_GET['favorite'];
@@ -21,15 +20,14 @@ $request = $_GET['request'] ?? "";
 if (isset($_GET['id']))
 {
 	$id = (int)$_GET['id'];
-	$currentMovie = findMoviesByID($movies, $id);
+	$currentMovie = findMovieByID($movies, $id);
 
 	if ($currentMovie)
 	{
 		$currentPage = "./res/pages/detailed-film.php";
-			$result = renderTemplate($currentPage, [
-				'movie' => $currentMovie,
-				'$currentPage' => $currentPage
-			]);
+		$result = renderTemplate($currentPage, [
+			'movie' => $currentMovie
+		]);
 	}
 	else
 	{
@@ -67,5 +65,5 @@ else
 
 renderLayout($result, [
 	'currentMenuItem' => $currentMenuItem,
-	'config' => $config
+	'config' => $config,
 ]);

@@ -15,7 +15,7 @@ $genres = [
 	'western' => 'Вестерн',
 	'war' => 'Военный',
 	'sport' => 'Спорт',
-	'history' => 'История'
+	'history' => 'История',
 ];
 
 $movies = [
@@ -31,7 +31,7 @@ $movies = [
 		'age-restriction' => 16,
 		'release-date' => 2014,
 		'rating' => 8.6,
-		'favorite' => true
+		'favorite' => true,
 	],
 	[
 		'id' => 2,
@@ -45,7 +45,7 @@ $movies = [
 		'age-restriction' => 12,
 		'release-date' => 2017,
 		'rating' => 8.6,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 3,
@@ -59,7 +59,7 @@ $movies = [
 		'age-restriction' => 12,
 		'release-date' => 2010,
 		'rating' => 8.7,
-		'favorite' => true
+		'favorite' => true,
 	],
 	[
 		'id' => 4,
@@ -73,7 +73,7 @@ $movies = [
 		'age-restriction' => 16,
 		'release-date' => 2011,
 		'rating' => 8.8,
-		'favorite' => true
+		'favorite' => true,
 	],
 	[
 		'id' => 5,
@@ -87,7 +87,7 @@ $movies = [
 		'age-restriction' => 18,
 		'release-date' => 2019,
 		'rating' => 8.5,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 6,
@@ -101,7 +101,7 @@ $movies = [
 		'age-restriction' => 16,
 		'release-date' => 2013,
 		'rating' => 8.3,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 7,
@@ -115,7 +115,7 @@ $movies = [
 		'age-restriction' => 16,
 		'release-date' => 2018,
 		'rating' => 8.4,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 8,
@@ -129,7 +129,7 @@ $movies = [
 		'age-restriction' => 18,
 		'release-date' => 2013,
 		'rating' => 7.9,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 9,
@@ -143,7 +143,7 @@ $movies = [
 		'age-restriction' => 18,
 		'release-date' => 2012,
 		'rating' => 8.2,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 10,
@@ -157,7 +157,7 @@ $movies = [
 		'age-restriction' => 6,
 		'release-date' => 2012,
 		'rating' => 8.1,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 11,
@@ -171,7 +171,7 @@ $movies = [
 		'age-restriction' => 18,
 		'release-date' => 2015,
 		'rating' => 7.9,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 12,
@@ -185,7 +185,7 @@ $movies = [
 		'age-restriction' => 6,
 		'release-date' => 2015,
 		'rating' => 8.0,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 13,
@@ -199,7 +199,7 @@ $movies = [
 		'age-restriction' => 12,
 		'release-date' => 2011,
 		'rating' => 8.1,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 14,
@@ -213,7 +213,7 @@ $movies = [
 		'age-restriction' => 6,
 		'release-date' => 2016,
 		'rating' => 8.3,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 15,
@@ -227,7 +227,7 @@ $movies = [
 		'age-restriction' => 18,
 		'release-date' => 2016,
 		'rating' => 8.0,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 16,
@@ -241,7 +241,7 @@ $movies = [
 		'age-restriction' => 16,
 		'release-date' => 2019,
 		'rating' => 8.2,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 17,
@@ -255,7 +255,7 @@ $movies = [
 		'age-restriction' => 16,
 		'release-date' => 2018,
 		'rating' => 7.9,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 18,
@@ -269,7 +269,7 @@ $movies = [
 		'age-restriction' => 6,
 		'release-date' => 2014,
 		'rating' => 8.1,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 19,
@@ -283,7 +283,7 @@ $movies = [
 		'age-restriction' => 12,
 		'release-date' => 2013,
 		'rating' => 8.0,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 20,
@@ -297,7 +297,7 @@ $movies = [
 		'age-restriction' => 16,
 		'release-date' => 2010,
 		'rating' => 8.0,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 21,
@@ -311,7 +311,7 @@ $movies = [
 		'age-restriction' => 12,
 		'release-date' => 2014,
 		'rating' => 7.8,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 22,
@@ -325,7 +325,7 @@ $movies = [
 		'age-restriction' => 6,
 		'release-date' => 2018,
 		'rating' => 8.0,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 23,
@@ -339,7 +339,7 @@ $movies = [
 		'age-restriction' => 12,
 		'release-date' => 2014,
 		'rating' => 7.8,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 24,
@@ -353,7 +353,7 @@ $movies = [
 		'age-restriction' => 18,
 		'release-date' => 2013,
 		'rating' => 7.9,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 25,
@@ -367,7 +367,7 @@ $movies = [
 		'age-restriction' => 12,
 		'release-date' => 2011,
 		'rating' => 8.2,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 26,
@@ -381,7 +381,7 @@ $movies = [
 		'age-restriction' => 16,
 		'release-date' => 2015,
 		'rating' => 8.0,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 27,
@@ -395,7 +395,7 @@ $movies = [
 		'age-restriction' => 16,
 		'release-date' => 2019,
 		'rating' => 8.0,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 28,
@@ -409,7 +409,7 @@ $movies = [
 		'age-restriction' => 16,
 		'release-date' => 2017,
 		'rating' => 8.0,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 29,
@@ -423,7 +423,7 @@ $movies = [
 		'age-restriction' => 18,
 		'release-date' => 2014,
 		'rating' => 7.9,
-		'favorite' => false
+		'favorite' => false,
 	],
 	[
 		'id' => 30,
@@ -437,6 +437,6 @@ $movies = [
 		'age-restriction' => 16,
 		'release-date' => 2014,
 		'rating' => 8.0,
-		'favorite' => true
+		'favorite' => true,
 	],
 ];

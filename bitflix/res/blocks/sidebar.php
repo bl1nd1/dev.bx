@@ -5,18 +5,20 @@
 ?>
 <?php
 ?>
-<div class = "sidebar">
-	<div class = "sidebar-header">
+<div class="sidebar">
+	<div class="sidebar-header">
 		<?= $config['title'] ?>
 	</div>
-	<ul class = "menu">
-		<?php foreach ($config['menu'] as $menuItem):?>
-			<li class = "menu-item <?=
+	<ul class="menu">
+		<?php
+		foreach ($config['menu'] as $menuItem): ?>
+			<li class="menu-item <?=
 			($currentMenuItem === $menuItem['name']) ? "menu-item--active" : "" ?>">
-				<a href="bitflix.php?menuItem=<?= $menuItem['name']?>">
+				<a href="bitflix.php?menuItem=<?= $menuItem['name'] ?>">
 					<?= $menuItem['title'] ?>
 				</a>
 			</li>
-		<?php endforeach;?>
+		<?php
+		endforeach; ?>
 	</ul>
 </div>

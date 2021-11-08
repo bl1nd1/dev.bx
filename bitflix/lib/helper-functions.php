@@ -1,14 +1,13 @@
 <?php
-/** @var array $genres  */
 
 function formatDuration(int $duration): string
 {
 	return $duration . ' мин. / ' . ((string)(int)($duration / 60)) . ':' . (str_pad(
-		(string)$duration % 60,
-		2,
-		"0",
-		STR_PAD_LEFT
-	));
+			(string)$duration % 60,
+			2,
+			"0",
+			STR_PAD_LEFT
+		));
 }
 
 function formatRating(float $rating): string
@@ -33,7 +32,7 @@ function sortMoviesByGenre(array $movies, string $genre = ""): array
 	return $sortedMoviesByGenre;
 }
 
-function findMoviesByID(array $movies, int $id)
+function findMovieByID(array $movies, int $id)
 {
 	foreach ($movies as $movie)
 	{
@@ -66,4 +65,13 @@ function sortMoviesByUserRequest(array $movies, string $request): array
 		}
 	}
 	return $sortedMovies;
+}
+
+function printGenres(array $movieGenres):string
+{
+	$genres = '';
+	foreach ($movieGenres as $genre):
+		$genres .= $genre . ', ';
+	endforeach;
+	return substr($genres, 0, -2);
 }
