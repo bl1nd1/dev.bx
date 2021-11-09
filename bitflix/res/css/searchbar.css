@@ -1,5 +1,6 @@
 .searchbar {
 	position: relative;
+	outline: none;
 	display: flex;
 	align-items: center;
 	min-height: 88px;
@@ -20,6 +21,8 @@
 
 .searchbar-item {
 	margin-left: 40px;
+	width: 500px;
+	display: flex;
 	flex: 1;
 	font-family: Open Sans, sans-serif;
 	font-style: normal;
@@ -27,7 +30,10 @@
 	font-size: 18px;
 	line-height: 40px;
 	border: none;
+}
 
+.searchbar-item:focus {
+	outline: none;
 }
 
 .searchbar-item--icon {
