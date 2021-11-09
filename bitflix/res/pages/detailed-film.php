@@ -2,6 +2,7 @@
 /** @var array $movie */
 
 ?>
+
 <div class="film-content">
 	<div class="detailed-movie-item">
 		<div class="detailed-movie-item--head">

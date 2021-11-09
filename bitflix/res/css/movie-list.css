@@ -39,19 +39,19 @@
 	opacity: 1;
 }
 
-.overlay {
-	display: inline-flex;
-	padding: 10px 15px;
-	background: #4ee7b0;
-	border-radius: 7px;
+.movie-list-item--overlay-button {
+	width: 221px;
+	height: 56px;
 	font-family: 'Open Sans', sans-serif;
-	font-style: normal;
+	border-radius: 7px;
 	font-weight: bold;
-	font-size: 14px;
+	font-size: 18px;
+	line-height: 56px;
 	text-align: center;
 	text-transform: uppercase;
-	color: #fff;
 	text-decoration: none;
+	color: #FFFFFF;
+	background: #4EE7B0;
 }
 
 .movie-list-item--image {

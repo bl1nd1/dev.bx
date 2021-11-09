@@ -15,21 +15,21 @@ function formatRating(float $rating): string
 	return str_pad((string)$rating, 3, ".0");
 }
 
-function sortMoviesByGenre(array $movies, string $genre = ""): array
+function filterMoviesByGenre(array $movies, string $genre = ""): array
 {
 	if ($genre === "")
 	{
 		return $movies;
 	}
-	$sortedMoviesByGenre = [];
+	$filteredMoviesByGenre = [];
 	foreach ($movies as $movie)
 	{
 		if (isset($genre) && in_array($genre, $movie['genres'], true))
 		{
-			$sortedMoviesByGenre[] = $movie;
+			$filteredMoviesByGenre[] = $movie;
 		}
 	}
-	return $sortedMoviesByGenre;
+	return $filteredMoviesByGenre;
 }
 
 function findMovieByID(array $movies, int $id)
@@ -44,27 +44,22 @@ function findMovieByID(array $movies, int $id)
 	return false;
 }
 
-function contains(string $str, string $substr): bool
-{
-	return (stristr($str, $substr));
-}
-
-function sortMoviesByUserRequest(array $movies, string $request): array
+function filterMoviesByUserRequest(array $movies, string $request): array
 {
 	if ($request === "")
 	{
 		return $movies;
 	}
-	$sortedMovies = [];
+	$filteredMovies = [];
 	$request = mb_strtolower($request);
 	foreach ($movies as $movie)
 	{
-		if (contains(mb_strtolower($movie['title'] . $movie['original-title']), $request))
+		if (stristr(mb_strtolower($movie['title'] . $movie['original-title']), $request))
 		{
-			$sortedMovies[] = $movie;
+			$filteredMovies[] = $movie;
 		}
 	}
-	return $sortedMovies;
+	return $filteredMovies;
 }
 
 function printGenres(array $movieGenres):string

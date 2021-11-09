@@ -6,11 +6,11 @@
 foreach ($movies as $movie): ?>
 	<div class="movie-list-item">
 		<div class="movie-list-item--overlay">
-			<a href="bitflix.php?id=<?= $movie['id'] ?>" class="overlay">Подробнее</a>
+			<a href="bitflix-detailed-film.php?id=<?= $movie['id'] ?>" class="movie-list-item--overlay-button">Подробнее</a>
 		</div>
 		<div class="movie-list-item--image" style="background-image: url(./res/img/<?= $movie['id'] ?>.jpg)"></div>
 		<div class="movie-list-item--head">
-			<div class="movie-list-item--title"><?= $movie['title'] . ' (' . $movie['release-date'] . ')' ?></div>
+			<div class="movie-list-item--title"><?= mb_strimwidth($movie['title'], 0, 19, "...") . ' (' . $movie['release-date'] . ')' ?></div>
 			<div class="movie-list-item--subtitle"><?= $movie['original-title'] ?></div>
 		</div>
 		<div class="movie-list-item--description"><?= $movie['description']; ?></div>
@@ -20,7 +20,12 @@ foreach ($movies as $movie): ?>
 				<?= formatDuration($movie['duration']) ?>
 			</div>
 			<div class="movie-list-item--genres">
-				<?= printGenres($movie['genres']) ?>
+				<?php $genres = '';
+				foreach ($movie['genres'] as $genre)
+				{
+					$genres .= $genre . ', ';
+				}
+				echo substr($genres, 0, -2);?>
 			</div>
 		</div>
 	</div>

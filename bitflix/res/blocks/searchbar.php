@@ -13,5 +13,5 @@
 		</div>
 		<input type="submit" class="search-button" value="Искать">
 	</form>
-	<a href="bitflix.php?addMovie=true" class="add-button">Добавить фильм</a>
+	<a href="bitflix-addMovie.php" class="add-button">Добавить фильм</a>
 </div>

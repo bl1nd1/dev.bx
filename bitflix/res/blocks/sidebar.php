@@ -14,7 +14,7 @@
 		foreach ($config['menu'] as $menuItem): ?>
 			<li class="menu-item <?=
 			($currentMenuItem === $menuItem['name']) ? "menu-item--active" : "" ?>">
-				<a href="bitflix.php?menuItem=<?= $menuItem['name'] ?>">
+				<a href="<?= ($menuItem['name'] === 'favorite') ? 'bitflix-favorite.php' : 'bitflix.php?menuItem=' . $menuItem['name'] ?>">
 					<?= $menuItem['title'] ?>
 				</a>
 			</li>

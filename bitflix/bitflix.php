@@ -47,13 +47,13 @@ elseif ($addMovie)
 }
 else
 {
-	$sortedMovie = sortMoviesByGenre($movies, $genre);
-	$sortedMovie = sortMoviesByUserRequest($sortedMovie, $request);
-	if (!empty($sortedMovie))
+	$filteredMovie = filterMoviesByGenre($movies, $genre);
+	$filteredMovie = filterMoviesByUserRequest($filteredMovie, $request);
+	if (!empty($filteredMovie))
 	{
 		$currentPage = "./res/pages/main.php";
 		$result = renderTemplate($currentPage, [
-			'movies' => $sortedMovie,
+			'movies' => $filteredMovie,
 		]);
 	}
 	else

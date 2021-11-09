@@ -5,13 +5,8 @@
 
 <div class="detailed-movie-item--body-info-rating">
 	<?php
-	for ($i = 0; $i < round($movie['rating']); $i++): ?>
-		<div class="info-rating-rectangle-active"></div>
-	<?php
-	endfor; ?>
-	<?php
-	for ($i = 0; $i < 11 - round($movie['rating']); $i++): ?>
-		<div class="info-rating-rectangle"></div>
+	for ($i = 0; $i < 10; $i++): ?>
+		<div class="info-rating-rectangle<?= (round($movie['rating']) > $i)? '-active' : '' ?>"></div>
 	<?php
 	endfor; ?>
 	<div class="info-rating-circle">
