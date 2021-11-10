@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6978ecf4-a391-4add-a24f-6a7565f2dddf" name="Changes" comment="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar" />
+    <list default="true" id="6978ecf4-a391-4add-a24f-6a7565f2dddf" name="Changes" comment="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar">
+      <change beforePath="$PROJECT_DIR$/bitflix/res/blocks/printRating.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/res/blocks/printRating.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,6 +83,7 @@
       <workItem from="1633701866710" duration="516000" />
       <workItem from="1634904201267" duration="19000" />
       <workItem from="1636392782786" duration="4709000" />
+      <workItem from="1636556374526" duration="308000" />
     </task>
     <task id="LOCAL-00001" summary="README.md: ...">
       <created>1633706013248</created>
@@ -124,7 +127,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636495960890</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar">
+      <created>1636556653838</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1636556653838</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

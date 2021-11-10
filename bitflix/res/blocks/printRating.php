@@ -9,9 +9,7 @@
 		<div class="detailed-movie-item--body-info-rating-list-item<?= (round($movie['rating']) > $i)? '-active' : '' ?>"></div>
 	<?php
 	endfor; ?>
-	<div class="detailed-movie-item--body-info-rating-circle">
-		<div class="detailed-movie-item--body-info-rating-circle-number">
-			<?= formatRating($movie['rating']) ?>
-		</div>
+	<div class="detailed-movie-item--body-info-rating-circle"><?= formatRating($movie['rating']) ?>
+
 	</div>
 </div>
