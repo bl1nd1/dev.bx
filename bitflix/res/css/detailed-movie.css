@@ -103,7 +103,7 @@
 	align-items: center;
 }
 
-.info-rating-rectangle-active {
+.detailed-movie-item--body-info-rating-list-item-active {
 	width: 27px;
 	height: 27px;
 	background: #e78818;
@@ -111,7 +111,7 @@
 	box-sizing: border-box;
 }
 
-.info-rating-rectangle {
+.detailed-movie-item--body-info-rating-list-item {
 	width: 27px;
 	height: 27px;
 	background: #f2f2f2;
@@ -119,7 +119,7 @@
 	box-sizing: border-box;
 }
 
-.info-rating-circle {
+.detailed-movie-item--body-info-rating-circle {
 	display: flex;
 	width: 55px;
 	height: 55px;
@@ -129,7 +129,7 @@
 	margin-left: 18px;
 }
 
-.circle-number {
+.detailed-movie-item--body-info-rating-circle-number {
 	font-weight: bold;
 	font-size: 22px;
 	line-height: 30px;
