@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6978ecf4-a391-4add-a24f-6a7565f2dddf" name="Changes" comment="bitflix: done" />
+    <list default="true" id="6978ecf4-a391-4add-a24f-6a7565f2dddf" name="Changes" comment="bitflix.php: done">
+      <change afterPath="$PROJECT_DIR$/db_homework2/db_homework2.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +19,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="bitflix" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -43,6 +46,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
@@ -63,6 +67,8 @@
       <list>
         <item itemvalue="PHP Script.index.php" />
         <item itemvalue="PHP Script.index.php" />
+        <item itemvalue="PHP Script.index.php" />
+        <item itemvalue="PHP Script.index.php" />
       </list>
     </recent_temporary>
   </component>
@@ -80,6 +86,7 @@
       <workItem from="1633701866710" duration="516000" />
       <workItem from="1634904201267" duration="19000" />
       <workItem from="1636392782786" duration="341000" />
+      <workItem from="1636398702915" duration="5364000" />
     </task>
     <task id="LOCAL-00001" summary="README.md: ...">
       <created>1633706013248</created>
