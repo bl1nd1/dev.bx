@@ -1,0 +1,245 @@
+Index: db_homework2/db_homework2.sql
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># 1. Вывести список фильмов, в которых снимались одновременно Арнольд Шварценеггер и Линда Хэмилтон.\r\n# Формат: ID фильма, Название на русском языке, Имя режиссёра.\r\n\r\nSELECT movie.ID, t.TITLE, d.NAME FROM movie\r\n\t                                      INNER JOIN movie_title t on movie.ID = t.MOVIE_ID\r\n\t                                      INNER JOIN director d on movie.DIRECTOR_ID = d.ID\r\nWHERE (SELECT COUNT(*) FROM movie m\r\n\t                            INNER JOIN movie_title mt on m.ID = mt.MOVIE_ID\r\n\t                            INNER JOIN movie_actor ma on m.ID = ma.MOVIE_ID\r\n\t                            INNER JOIN actor a on ma.ACTOR_ID = a.ID\r\n       WHERE mt.LANGUAGE_ID = 'ru' AND a.ID IN (1, 3) AND m.ID = movie.ID) = 2\r\n  AND t.LANGUAGE_ID = 'ru';\r\n\r\n# 2. Вывести список названий фильмов на английском языке с \"откатом\" на русский, в случае если название на английском не задано.\r\n# Формат: ID фильма, Название.\r\n\r\nSELECT ru.id, IF (ISNULL(en.title), ru.title, en.TITLE) AS '1 and 2' from (SELECT * FROM movie\r\n\t                                                                                         INNER JOIN  movie_title mt on movie.ID = mt.MOVIE_ID\r\n                                                                           WHERE LANGUAGE_ID = 'ru') ru\r\n\t                                                                          LEFT JOIN (SELECT * from movie\r\n\t\t                                                                                                   INNER JOIN  movie_title m on movie.ID = m.MOVIE_ID\r\n\t                                                                                     WHERE LANGUAGE_ID = 'en') en ON en.ID = ru.ID\r\nGROUP BY ru.id;\r\n\r\n# 3. Вывести самый длительный фильм Джеймса Кэмерона.\r\n#  Формат: ID фильма, Название на русском языке, Длительность.\r\n\r\nSELECT m.ID, mt.TITLE, m.LENGTH FROM movie m\r\n\t                                     INNER JOIN director d on m.DIRECTOR_ID = d.ID\r\n\t                                     INNER JOIN movie_title mt on m.ID = mt.MOVIE_ID\r\nWHERE d.ID = 1 AND mt.LANGUAGE_ID = 'ru'\r\nORDER BY m.LENGTH DESC LIMIT 1;\r\n\r\n# 4. Вывести список фильмов с названием, сокращённым до 10 символов. Если название короче 10 символов – оставляем как есть.\r\n# Если длиннее – сокращаем до 10 символов и добавляем многоточие.\r\n# Формат: ID фильма, сокращённое название\r\n\r\nSELECT m.ID, IF(CHAR_LENGTH(mt.TITLE) > 10, CONCAT(TRIM(LEFT(mt.TITLE,10)), '...'), mt.TITLE) as TITLE FROM movie m\r\n\t                                                                                                            INNER JOIN movie_title mt on m.ID = mt.MOVIE_ID\r\nORDER BY ID;\r\n\r\n# 5. Вывести количество фильмов, в которых снимался каждый актёр.\r\n# Формат: Имя актёра, Количество фильмов актёра.\r\n\r\nSELECT actor.NAME, (SELECT COUNT(a.ID) FROM actor a\r\n\t                                            INNER JOIN movie_actor ma on a.ID = ma.ACTOR_ID\r\n                    WHERE a.ID = actor.ID) MOVIE_COUNT\r\nFROM actor;\r\n\r\n# 6. Вывести жанры, в которых никогда не снимался Арнольд Шварценеггер.\r\n# Формат: ID жанра, название\r\n\r\nSELECT ID, NAME FROM ( SELECT * FROM genre g\r\n\t                                     LEFT JOIN (SELECT DISTINCT ACTOR_ID,GENRE_ID FROM movie_actor ma\r\n\t\t                                                                                       INNER JOIN movie_genre mg on mg.MOVIE_ID = ma.MOVIE_ID\r\n\t                                                WHERE ACTOR_ID = 1) t on t.GENRE_ID = g.ID) tab\r\nWHERE ISNULL(tab.ACTOR_ID)\r\nORDER BY ID ASC;\r\n\r\n# 7. Вывести список фильмов, у которых больше 3-х жанров.\r\n# Формат: ID фильма, название на русском языке\r\n\r\nSELECT movie.ID, mt.TITLE FROM movie\r\n\t                               INNER JOIN movie_title mt on movie.ID = mt.MOVIE_ID\r\nWHERE (SELECT COUNT(*) FROM movie m\r\n\t                            INNER JOIN movie_genre mg on m.ID = mg.MOVIE_ID\r\n\t                            INNER JOIN genre g on mg.GENRE_ID = g.ID\r\n       WHERE m.ID = movie.ID) > 3 AND mt.LANGUAGE_ID = 'ru'\r\nORDER BY ID ASC ;\r\n\r\n# 8. Вывести самый популярный жанр для каждого актёра.\r\n# Формат вывода: Имя актёра, Жанр, в котором у актёра больше всего фильмов.\r\n\r\nSELECT actor.NAME,\r\n       (SELECT g.NAME FROM genre g\r\n\t                           INNER JOIN movie_genre mg on g.ID = mg.GENRE_ID\r\n\t                           INNER JOIN movie_actor ma on mg.MOVIE_ID = ma.MOVIE_ID\r\n\t                           INNER JOIN movie m on mg.MOVIE_ID = m.ID\r\n\t                           INNER JOIN movie_title mt on m.ID = mt.MOVIE_ID\r\n\t                           INNER JOIN actor a on ma.ACTOR_ID = a.ID\r\n        WHERE a.ID = actor.ID AND mt.LANGUAGE_ID = 'ru'\r\n        GROUP BY g.NAME\r\n        ORDER BY COUNT(*) DESC\r\n        LIMIT 1) as MOST_POPULAR_GENRE\r\nFROM actor;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/db_homework2/db_homework2.sql b/db_homework2/db_homework2.sql
+--- a/db_homework2/db_homework2.sql	(revision f6aae20589d4954b32c301ce7895399bccb1b753)
++++ b/db_homework2/db_homework2.sql	(date 1636408871035)
+@@ -2,32 +2,32 @@
+ # Формат: ID фильма, Название на русском языке, Имя режиссёра.
+ 
+ SELECT movie.ID, t.TITLE, d.NAME FROM movie
+-	                                      INNER JOIN movie_title t on movie.ID = t.MOVIE_ID
+-	                                      INNER JOIN director d on movie.DIRECTOR_ID = d.ID
++INNER JOIN movie_title t on movie.ID = t.MOVIE_ID
++INNER JOIN director d on movie.DIRECTOR_ID = d.ID
+ WHERE (SELECT COUNT(*) FROM movie m
+-	                            INNER JOIN movie_title mt on m.ID = mt.MOVIE_ID
+-	                            INNER JOIN movie_actor ma on m.ID = ma.MOVIE_ID
+-	                            INNER JOIN actor a on ma.ACTOR_ID = a.ID
+-       WHERE mt.LANGUAGE_ID = 'ru' AND a.ID IN (1, 3) AND m.ID = movie.ID) = 2
+-  AND t.LANGUAGE_ID = 'ru';
++INNER JOIN movie_title mt on m.ID = mt.MOVIE_ID
++INNER JOIN movie_actor ma on m.ID = ma.MOVIE_ID
++INNER JOIN actor a on ma.ACTOR_ID = a.ID
++WHERE mt.LANGUAGE_ID = 'ru' AND a.ID IN (1, 3) AND m.ID = movie.ID) = 2
++AND t.LANGUAGE_ID = 'ru';
+ 
+ # 2. Вывести список названий фильмов на английском языке с "откатом" на русский, в случае если название на английском не задано.
+ # Формат: ID фильма, Название.
+ 
+ SELECT ru.id, IF (ISNULL(en.title), ru.title, en.TITLE) AS '1 and 2' from (SELECT * FROM movie
+-	                                                                                         INNER JOIN  movie_title mt on movie.ID = mt.MOVIE_ID
+-                                                                           WHERE LANGUAGE_ID = 'ru') ru
+-	                                                                          LEFT JOIN (SELECT * from movie
+-		                                                                                                   INNER JOIN  movie_title m on movie.ID = m.MOVIE_ID
+-	                                                                                     WHERE LANGUAGE_ID = 'en') en ON en.ID = ru.ID
++INNER JOIN  movie_title mt on movie.ID = mt.MOVIE_ID
++WHERE LANGUAGE_ID = 'ru') ru
++LEFT JOIN (SELECT * from movie
++INNER JOIN  movie_title m on movie.ID = m.MOVIE_ID
++WHERE LANGUAGE_ID = 'en') en ON en.ID = ru.ID
+ GROUP BY ru.id;
+ 
+ # 3. Вывести самый длительный фильм Джеймса Кэмерона.
+ #  Формат: ID фильма, Название на русском языке, Длительность.
+ 
+ SELECT m.ID, mt.TITLE, m.LENGTH FROM movie m
+-	                                     INNER JOIN director d on m.DIRECTOR_ID = d.ID
+-	                                     INNER JOIN movie_title mt on m.ID = mt.MOVIE_ID
++INNER JOIN director d on m.DIRECTOR_ID = d.ID
++INNER JOIN movie_title mt on m.ID = mt.MOVIE_ID
+ WHERE d.ID = 1 AND mt.LANGUAGE_ID = 'ru'
+ ORDER BY m.LENGTH DESC LIMIT 1;
+ 
+@@ -36,24 +36,24 @@
+ # Формат: ID фильма, сокращённое название
+ 
+ SELECT m.ID, IF(CHAR_LENGTH(mt.TITLE) > 10, CONCAT(TRIM(LEFT(mt.TITLE,10)), '...'), mt.TITLE) as TITLE FROM movie m
+-	                                                                                                            INNER JOIN movie_title mt on m.ID = mt.MOVIE_ID
++INNER JOIN movie_title mt on m.ID = mt.MOVIE_ID
+ ORDER BY ID;
+ 
+ # 5. Вывести количество фильмов, в которых снимался каждый актёр.
+ # Формат: Имя актёра, Количество фильмов актёра.
+ 
+ SELECT actor.NAME, (SELECT COUNT(a.ID) FROM actor a
+-	                                            INNER JOIN movie_actor ma on a.ID = ma.ACTOR_ID
+-                    WHERE a.ID = actor.ID) MOVIE_COUNT
++INNER JOIN movie_actor ma on a.ID = ma.ACTOR_ID
++WHERE a.ID = actor.ID) MOVIE_COUNT
+ FROM actor;
+ 
+ # 6. Вывести жанры, в которых никогда не снимался Арнольд Шварценеггер.
+ # Формат: ID жанра, название
+ 
+ SELECT ID, NAME FROM ( SELECT * FROM genre g
+-	                                     LEFT JOIN (SELECT DISTINCT ACTOR_ID,GENRE_ID FROM movie_actor ma
+-		                                                                                       INNER JOIN movie_genre mg on mg.MOVIE_ID = ma.MOVIE_ID
+-	                                                WHERE ACTOR_ID = 1) t on t.GENRE_ID = g.ID) tab
++LEFT JOIN (SELECT DISTINCT ACTOR_ID,GENRE_ID FROM movie_actor ma
++INNER JOIN movie_genre mg on mg.MOVIE_ID = ma.MOVIE_ID
++WHERE ACTOR_ID = 1) t on t.GENRE_ID = g.ID) tab
+ WHERE ISNULL(tab.ACTOR_ID)
+ ORDER BY ID ASC;
+ 
+@@ -61,25 +61,25 @@
+ # Формат: ID фильма, название на русском языке
+ 
+ SELECT movie.ID, mt.TITLE FROM movie
+-	                               INNER JOIN movie_title mt on movie.ID = mt.MOVIE_ID
++INNER JOIN movie_title mt on movie.ID = mt.MOVIE_ID
+ WHERE (SELECT COUNT(*) FROM movie m
+-	                            INNER JOIN movie_genre mg on m.ID = mg.MOVIE_ID
+-	                            INNER JOIN genre g on mg.GENRE_ID = g.ID
+-       WHERE m.ID = movie.ID) > 3 AND mt.LANGUAGE_ID = 'ru'
++INNER JOIN movie_genre mg on m.ID = mg.MOVIE_ID
++INNER JOIN genre g on mg.GENRE_ID = g.ID
++WHERE m.ID = movie.ID) > 3 AND mt.LANGUAGE_ID = 'ru'
+ ORDER BY ID ASC ;
+ 
+ # 8. Вывести самый популярный жанр для каждого актёра.
+ # Формат вывода: Имя актёра, Жанр, в котором у актёра больше всего фильмов.
+ 
+ SELECT actor.NAME,
+-       (SELECT g.NAME FROM genre g
+-	                           INNER JOIN movie_genre mg on g.ID = mg.GENRE_ID
+-	                           INNER JOIN movie_actor ma on mg.MOVIE_ID = ma.MOVIE_ID
+-	                           INNER JOIN movie m on mg.MOVIE_ID = m.ID
+-	                           INNER JOIN movie_title mt on m.ID = mt.MOVIE_ID
+-	                           INNER JOIN actor a on ma.ACTOR_ID = a.ID
+-        WHERE a.ID = actor.ID AND mt.LANGUAGE_ID = 'ru'
+-        GROUP BY g.NAME
+-        ORDER BY COUNT(*) DESC
+-        LIMIT 1) as MOST_POPULAR_GENRE
++(SELECT g.NAME FROM genre g
++INNER JOIN movie_genre mg on g.ID = mg.GENRE_ID
++INNER JOIN movie_actor ma on mg.MOVIE_ID = ma.MOVIE_ID
++INNER JOIN movie m on mg.MOVIE_ID = m.ID
++INNER JOIN movie_title mt on m.ID = mt.MOVIE_ID
++INNER JOIN actor a on ma.ACTOR_ID = a.ID
++WHERE a.ID = actor.ID AND mt.LANGUAGE_ID = 'ru'
++GROUP BY g.NAME
++ORDER BY COUNT(*) DESC
++LIMIT 1) as MOST_POPULAR_GENRE
+ FROM actor;
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"6978ecf4-a391-4add-a24f-6a7565f2dddf\" name=\"Changes\" comment=\"bitflix.php: done\">\r\n      <change afterPath=\"$PROJECT_DIR$/db_homework2/db_homework2.sql\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n    <option name=\"UPDATE_TYPE\" value=\"REBASE\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"PhpDebugGeneral\" xdebug_force_break_when_no_path_mapping=\"false\" xdebug_force_break_when_outside_project=\"false\" />\r\n  <component name=\"PhpServers\">\r\n    <servers>\r\n      <server host=\"dev.bx\" id=\"db9c8387-74e3-4b8c-acf9-e20302921d84\" name=\"dev.bx\" />\r\n    </servers>\r\n  </component>\r\n  <component name=\"PhpWebServerValidation\" path_to_validation_script=\"D:\\OpenServer\\domains\\dev.bx\" selected_validation_type=\"LOCAL\" web_path_to_validation_script=\"http://dev.bx/\" />\r\n  <component name=\"PhpWorkspaceProjectConfiguration\" interpreter_name=\"PHP\" />\r\n  <component name=\"ProjectId\" id=\"1z231aK7daAoRgwYIPzPkokqcLH\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_ADD_EXTERNAL_FILES\" value=\"true\" />\r\n    <property name=\"DatabaseDriversLRU\" value=\"mysql\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"TODO_SCOPE\" value=\"All Places\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"vcs.Git\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"index.php\" type=\"PhpLocalRunConfigurationType\" factoryName=\"PHP Console\" temporary=\"true\" path=\"$PROJECT_DIR$/index.php\">\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"PHP Script.index.php\" />\r\n        <item itemvalue=\"PHP Script.index.php\" />\r\n        <item itemvalue=\"PHP Script.index.php\" />\r\n        <item itemvalue=\"PHP Script.index.php\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"6978ecf4-a391-4add-a24f-6a7565f2dddf\" name=\"Changes\" comment=\"\" />\r\n      <created>1633332147423</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1633332147423</updated>\r\n      <workItem from=\"1633332148734\" duration=\"610000\" />\r\n      <workItem from=\"1633332790540\" duration=\"398000\" />\r\n      <workItem from=\"1633361055553\" duration=\"655000\" />\r\n      <workItem from=\"1633701866710\" duration=\"516000\" />\r\n      <workItem from=\"1634904201267\" duration=\"19000\" />\r\n      <workItem from=\"1636392782786\" duration=\"341000\" />\r\n      <workItem from=\"1636398702915\" duration=\"5364000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"README.md: ...\">\r\n      <created>1633706013248</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1633706013248</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"README.md: ...\">\r\n      <created>1633706628017</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1633706628017</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"bitflix: done\">\r\n      <created>1636392903971</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1636392903971</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"README.md: ...\" />\r\n    <MESSAGE value=\"bitflix: done\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"bitflix: done\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision f6aae20589d4954b32c301ce7895399bccb1b753)
++++ b/.idea/workspace.xml	(date 1636471480805)
+@@ -4,9 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="6978ecf4-a391-4add-a24f-6a7565f2dddf" name="Changes" comment="bitflix.php: done">
+-      <change afterPath="$PROJECT_DIR$/db_homework2/db_homework2.sql" afterDir="false" />
++    <list default="true" id="6978ecf4-a391-4add-a24f-6a7565f2dddf" name="Changes" comment="db_homework2.sql: done">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/db_homework2/db_homework2.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db_homework2/db_homework2.sql" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -23,7 +23,7 @@
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+-    <option name="UPDATE_TYPE" value="REBASE" />
++    <option name="RESET_MODE" value="MIXED" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+@@ -86,7 +86,8 @@
+       <workItem from="1633701866710" duration="516000" />
+       <workItem from="1634904201267" duration="19000" />
+       <workItem from="1636392782786" duration="341000" />
+-      <workItem from="1636398702915" duration="5364000" />
++      <workItem from="1636398702915" duration="6856000" />
++      <workItem from="1636471418566" duration="59000" />
+     </task>
+     <task id="LOCAL-00001" summary="README.md: ...">
+       <created>1633706013248</created>
+@@ -109,7 +110,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1636392903971</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="db_homework2.sql: done">
++      <created>1636408131595</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1636408131622</updated>
++    </task>
++    <task id="LOCAL-00005" summary="db_homework2.sql: done">
++      <created>1636408787355</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1636408787355</updated>
++    </task>
++    <option name="localTasksCounter" value="6" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -118,6 +133,31 @@
+   <component name="Vcs.Log.Tabs.Properties">
+     <option name="TAB_STATES">
+       <map>
++        <entry key="3de67e57-0657-4ec8-98c1-ba34e6cd6190">
++          <value>
++            <State>
++              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="HEAD" />
++                      </list>
++                    </value>
++                  </entry>
++                  <entry key="structure">
++                    <value>
++                      <list>
++                        <option value="dir:D:/OpenServer/domains/dev.bx/bitflix" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
++          </value>
++        </entry>
+         <entry key="MAIN">
+           <value>
+             <State />
+@@ -125,12 +165,18 @@
+         </entry>
+       </map>
+     </option>
++    <option name="OPEN_GENERIC_TABS">
++      <map>
++        <entry key="3de67e57-0657-4ec8-98c1-ba34e6cd6190" value="TOOL_WINDOW" />
++      </map>
++    </option>
+   </component>
+   <component name="VcsManagerConfiguration">
+     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+     <MESSAGE value="README.md: ..." />
+     <MESSAGE value="bitflix: done" />
+-    <option name="LAST_COMMIT_MESSAGE" value="bitflix: done" />
++    <MESSAGE value="db_homework2.sql: done" />
++    <option name="LAST_COMMIT_MESSAGE" value="db_homework2.sql: done" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+     <expand />
