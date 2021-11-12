@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6978ecf4-a391-4add-a24f-6a7565f2dddf" name="Changes" comment="bitflix.php: done">
-      <change afterPath="$PROJECT_DIR$/db_homework2/db_homework2.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6978ecf4-a391-4add-a24f-6a7565f2dddf" name="Changes" comment="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar">
+      <change beforePath="$PROJECT_DIR$/bitflix/res/blocks/printRating.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/res/blocks/printRating.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="homework1" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,7 +45,6 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
@@ -56,7 +54,7 @@
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -65,7 +63,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHP Script.index.php" />
         <item itemvalue="PHP Script.index.php" />
         <item itemvalue="PHP Script.index.php" />
         <item itemvalue="PHP Script.index.php" />
@@ -85,8 +82,8 @@
       <workItem from="1633361055553" duration="655000" />
       <workItem from="1633701866710" duration="516000" />
       <workItem from="1634904201267" duration="19000" />
-      <workItem from="1636392782786" duration="341000" />
-      <workItem from="1636398702915" duration="5364000" />
+      <workItem from="1636392782786" duration="4709000" />
+      <workItem from="1636556374526" duration="308000" />
     </task>
     <task id="LOCAL-00001" summary="README.md: ...">
       <created>1633706013248</created>
@@ -109,7 +106,35 @@
       <option name="project" value="LOCAL" />
       <updated>1636392903971</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="bitflix: done">
+      <created>1636393163540</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1636393163540</updated>
+    </task>
+    <task id="LOCAL-00005" summary="bitflix-addMovie.php: added&#10;bitflix-detailed-film.php: added&#10;bitflix-favorite.php: added&#10;./res/css: mistakes were fixed">
+      <created>1636494808022</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1636494808022</updated>
+    </task>
+    <task id="LOCAL-00006" summary="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar">
+      <created>1636495960890</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1636495960890</updated>
+    </task>
+    <task id="LOCAL-00007" summary="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar">
+      <created>1636556653838</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1636556653838</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +143,11 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="3de67e57-0657-4ec8-98c1-ba34e6cd6190">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -130,6 +160,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="README.md: ..." />
     <MESSAGE value="bitflix: done" />
+    <MESSAGE value="bitflix-addMovie.php: added&#10;bitflix-detailed-film.php: added&#10;bitflix-favorite.php: added&#10;./res/css: mistakes were fixed" />
     <MESSAGE value="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar" />
     <option name="LAST_COMMIT_MESSAGE" value="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar" />
   </component>

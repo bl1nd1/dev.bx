@@ -1,0 +1,147 @@
+.movies {
+	display: flex;
+	flex-direction: row;
+	flex-flow: wrap;
+	height: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+	background: #CCCCCC;
+}
+
+.movie-list-item {
+	display: inline-block;
+	position: relative;
+	width: 370px;
+	height: 700px;
+	margin: 20px 15px;
+	background: #FFFFFF;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+	border-radius: 20px;
+}
+
+.movie-list-item--overlay {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border-radius: 20px;
+	background: rgba(0, 0, 0, 0.7);
+	z-index: 9;
+	opacity: 0;
+	transition: .3s;
+}
+
+.movie-list-item:hover .movie-list-item--overlay {
+	opacity: 1;
+}
+
+.movie-list-item--overlay-button {
+	width: 221px;
+	height: 56px;
+	font-family: 'Open Sans', sans-serif;
+	border-radius: 7px;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 56px;
+	text-align: center;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #FFFFFF;
+	background: #4EE7B0;
+}
+
+.movie-list-item--image {
+	display: block;
+	height: 430px;
+	background: #000;
+	background-size: cover;
+	border-radius: 20px 20px 0 0;
+}
+
+.movie-list-item--main {
+	display: flex;
+	flex-direction: column;
+	max-height: 200px;
+	overflow: hidden;
+}
+
+.movie-list-item--head {
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	margin: 0 20px;
+	padding: 12px 0 15px 0;
+	border-bottom: 1px solid #F2F2F2 ;
+}
+
+.movie-list-item--title {
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 30px;
+	color: #333;
+}
+
+.movie-list-item--subtitle {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 25px;
+	color: #999999;
+	margin-bottom: 15px;
+}
+
+.movie-list-item--description {
+	text-overflow: ellipsis;
+	-webkit-line-clamp: 5;
+	display: -webkit-box;
+	word-wrap: break-word;
+	-webkit-box-orient: vertical;
+	margin: 15px 20px;
+	max-height: 100px;
+	font-weight: 400;
+	overflow: hidden;
+	font-size: 14px;
+	line-height: 20px;
+	color: #333;
+}
+
+.movie-list-item--bottom {
+	display: flex;
+	position: absolute;
+	bottom: 5px;
+	justify-content: space-between;
+	left: 15px;
+	right: 15px;
+	white-space: nowrap;
+}
+
+.movie-list-item--time {
+	position: relative;
+	padding-left: 25px;
+	margin-right: 10px;
+	font-size: 12px;
+	line-height: 22px;
+	color: #ccc;
+}
+
+.movie-list-item--time-icon {
+	position: absolute;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	background: url(../img/time-icon.jpg) center no-repeat;
+	background-size: cover;
+}
+
+.movie-list-item--genres {
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 10px;
+	line-height: 22px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	color: #ccc;
+}

@@ -1,0 +1,168 @@
+.film-content {
+	overflow-y: scroll;
+	background: #ccc;
+}
+
+.detailed-movie-item {
+	margin: 40px 51px 494px 41px;
+	background: #fff;
+}
+
+.detailed-movie-item--head {
+	display: block;
+	position: relative;
+	padding: 35px 0 17px 0;
+	margin: 0 10px 0 48px;
+	font-family: Open Sans, sans-serif;
+	font-style: normal;
+	border-bottom: 1px solid #ccc;
+}
+
+.check-favorite {
+	border: none;
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	width: 43px;
+	height: 37px;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	align-content: space-around;
+	background: url("../img/heart.jpg") center no-repeat;
+}
+
+.active,
+.check-favorite:hover {
+	background: url("../img/heart-active.jpg") center no-repeat;
+}
+
+.detailed-movie-item--head-title {
+	display: flex;
+	font-weight: 700;
+	font-size: 48px;
+	line-height: 65px;
+	color: #333;
+	justify-content: space-between;
+}
+
+.detailed-movie-item--head-subtitle {
+	display: flex;
+	padding-top: 8px;
+}
+
+.detailed-movie-item--head-subtitle-original-title {
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 33px;
+	color: #999;
+}
+
+.detailed-movie-item--head-subtitle-age-restriction {
+	display: inline-flex;
+	position: relative;
+	left: 10px;
+	border: 3px solid #f2f2f2;
+	border-radius: 7px;
+	height: 32px;
+	width: 39px;
+	justify-content: center;
+	align-items: center;
+}
+
+.age-restriction {
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 25px;
+	color: #ccc;
+}
+
+.detailed-movie-item--body {
+	display: flex;
+	margin: 21px 37px 43px 31px;
+	padding-bottom: 43px;
+}
+
+.detailed-movie-item--body-image {
+	display: block;
+	width: 469px;
+	height: 730px;
+	border: 11px solid #f2f2f2;
+}
+
+.detailed-movie-item--body-info {
+	flex: 1;
+	margin-left: 33px;
+	font-family: Open Sans, sans-serif;
+	font-style: normal;
+}
+
+.detailed-movie-item--body-info-rating {
+	display: flex;
+	padding-left: 18px;
+	align-items: center;
+}
+
+.detailed-movie-item--body-info-rating-list-item-active {
+	width: 27px;
+	height: 27px;
+	background: #e78818;
+	border: 5px solid #fff;
+	box-sizing: border-box;
+}
+
+.detailed-movie-item--body-info-rating-list-item {
+	width: 27px;
+	height: 27px;
+	background: #f2f2f2;
+	border: 5px solid #fff;
+	box-sizing: border-box;
+}
+
+.detailed-movie-item--body-info-rating-circle {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 55px;
+	height: 55px;
+	background: #e78818;
+	border-radius: 50px;
+	justify-content: center;
+	margin-left: 18px;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 30px;
+	color: #fff;
+}
+
+.detailed-movie-item--body-info-about-film {
+	padding-top: 25px;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 33px;
+	color: #333;
+	margin-bottom: 22px;
+}
+
+.detailed-movie-item--body-info-about-film-more {
+	display: flex;
+	margin-top: 15px;
+	font-size: 16px;
+	line-height: 22px;
+	color: #666;
+}
+
+.detailed-movie-item--body-info-about-film-title {
+	width: 150px;
+}
+
+.detailed-movie-item--body-info-about-film-text {
+	padding-left: 75px;
+	width: 400px;
+}
+
+.detailed-movie-item--body-info-about-film-description {
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 28px;
+}

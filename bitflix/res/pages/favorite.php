@@ -1,0 +1,1 @@
+<div class="favorite">Избранные фильмы</div>

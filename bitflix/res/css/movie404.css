@@ -1,0 +1,6 @@
+.movie404 {
+	flex: 1;
+	background: url("../img/movie404.jpg") no-repeat;
+	background-size: 90%;
+	opacity: 10%;
+}
