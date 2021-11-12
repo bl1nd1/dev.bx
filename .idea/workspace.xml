@@ -123,7 +123,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="README.md: ..." />
     <MESSAGE value="bitflix: done" />
-    <option name="LAST_COMMIT_MESSAGE" value="bitflix: done" />
+    <MESSAGE value="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
