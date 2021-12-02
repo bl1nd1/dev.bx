@@ -2,23 +2,44 @@
 
 declare(strict_types = 1);
 /** @var array $genres */
+/** @var array $menu */
 /** @var array $movies */
 /** @var array $config */
+require_once './lib/database-functions.php';
 require_once './lib/helper-functions.php';
 require_once "./config/cfg.php";
-require_once "./data/movies.php";
 require_once "./lib/template-functions.php";
 
-$currentMenuItem = $_GET['menuItem'] ?? 'main';
-$genre = array_key_exists($currentMenuItem, $genres) ? $genres[$currentMenuItem] : '';
-$request = $_GET['request'] ?? "";
+$database = connectDatabase(
+	[
+		$config['hostname'],
+		$config['username'],
+		$config['password'],
+		$config['databaseName']
+	]
+);
+$genres = getGenres($database);
+require_once "./data/menu.php";
+$config += ['menu' => $menu];
 
-$filteredMovie = filterMoviesByGenre($movies, $genre);
-$filteredMovie = filterMoviesByUserRequest($filteredMovie, $request);
-if (!empty($filteredMovie))
+$currentMenuItem = $_GET['menuItem'] ?? 'main';
+$currentGenre = null;
+foreach ($genres as $key => $genre)
+{
+	if ($genre['CODE'] === $currentMenuItem)
+	{
+		$currentGenre = $key;
+		break;
+	}
+}
+$movies = getMoviesByGenre($database, $genres, $currentGenre);
+$request = htmlspecialchars($_GET['request'] ?? "");
+$movies = getMoviesByUserRequest($movies, $request);
+if (!empty($movies))
 {
 	$result = renderTemplate("./res/pages/main.php", [
-		'movies' => $filteredMovie,
+		'movies' => $movies,
+		'genres' => $genres
 	]);
 }
 else
@@ -28,5 +49,5 @@ else
 
 renderLayout($result, [
 	'currentMenuItem' => $currentMenuItem,
-	'config' => $config,
+	'config' => $config
 ]);

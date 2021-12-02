@@ -4,8 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6978ecf4-a391-4add-a24f-6a7565f2dddf" name="Changes" comment="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar">
+    <list default="true" id="6978ecf4-a391-4add-a24f-6a7565f2dddf" name="Changes" comment="bitflix: done">
+      <change afterPath="$PROJECT_DIR$/bitflix/lib/database-functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/13c4e0f2-8742-4740-8851-198f6785a230.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/13c4e0f2-8742-4740-8851-198f6785a230.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_11_2021_21_09_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_11_2021_21_09_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_11_2021_21_09__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_11_2021_21_09__Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_11_2021_21_10_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_08_11_2021_21_10__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_11_2021_17_24_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_09_11_2021_17_24__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_12_11_2021_18_01_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_12_11_2021_18_01__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_12_11_2021_18_03_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_12_11_2021_18_03__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitflix/bitflix-addMovie.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/bitflix-addMovie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitflix/bitflix-detailed-film.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/bitflix-detailed-film.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitflix/bitflix-favorite.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/bitflix-favorite.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitflix/bitflix.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/bitflix.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitflix/config/cfg.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/config/cfg.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitflix/data/menu.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/data/menu.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitflix/data/movies.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitflix/lib/helper-functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/lib/helper-functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitflix/res/blocks/movie-list.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/res/blocks/movie-list.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitflix/res/blocks/printInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/res/blocks/printInfo.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bitflix/res/blocks/printRating.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/res/blocks/printRating.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitflix/res/blocks/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/res/blocks/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitflix/res/pages/detailed-film.php" beforeDir="false" afterPath="$PROJECT_DIR$/bitflix/res/pages/detailed-film.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +78,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/bitflix/bitflix.php" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -58,16 +87,21 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
-    <configuration name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/index.php">
+    <configuration name="bitflix.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/bitflix/bitflix.php">
+      <CommandLine>
+        <PhpTestInterpreterSettings>
+          <option name="interpreterName" value="PHP" />
+        </PhpTestInterpreterSettings>
+      </CommandLine>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="PHP Script.index.php" />
-        <item itemvalue="PHP Script.index.php" />
-        <item itemvalue="PHP Script.index.php" />
-        <item itemvalue="PHP Script.index.php" />
-        <item itemvalue="PHP Script.index.php" />
+        <item itemvalue="PHP Script.bitflix.php" />
+        <item itemvalue="PHP Script.bitflix.php" />
+        <item itemvalue="PHP Script.bitflix.php" />
+        <item itemvalue="PHP Script.bitflix.php" />
+        <item itemvalue="PHP Script.bitflix.php" />
       </list>
     </recent_temporary>
   </component>
@@ -86,6 +120,11 @@
       <workItem from="1634904201267" duration="19000" />
       <workItem from="1636392782786" duration="4709000" />
       <workItem from="1636556374526" duration="308000" />
+      <workItem from="1636733377047" duration="47000" />
+      <workItem from="1637837324123" duration="304000" />
+      <workItem from="1637837656880" duration="75000" />
+      <workItem from="1638442183967" duration="4793000" />
+      <workItem from="1638447051255" duration="28551000" />
     </task>
     <task id="LOCAL-00001" summary="README.md: ...">
       <created>1633706013248</created>
@@ -136,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636556653838</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="bitflix: done">
+      <created>1636733342799</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1636733342799</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -161,10 +207,10 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="README.md: ..." />
-    <MESSAGE value="bitflix: done" />
     <MESSAGE value="bitflix-addMovie.php: added&#10;bitflix-detailed-film.php: added&#10;bitflix-favorite.php: added&#10;./res/css: mistakes were fixed" />
     <MESSAGE value="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar" />
-    <option name="LAST_COMMIT_MESSAGE" value="bitflix.php: deleted extra ifs&#10;searchbar.css: fixed searchbar" />
+    <MESSAGE value="bitflix: done" />
+    <option name="LAST_COMMIT_MESSAGE" value="bitflix: done" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

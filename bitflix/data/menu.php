@@ -1,6 +1,5 @@
 <?php
 /** @var array $genres */
-require_once './data/movies.php';
 
 $menu = [
 	[
@@ -9,12 +8,13 @@ $menu = [
 	],
 ];
 
-foreach ($genres as $genre => $genreTitle):
+foreach ($genres as $genre)
+{
 	array_push($menu, [
-		'name' => $genre,
-		'title' => $genreTitle,
+		'name' => $genre['CODE'],
+		'title' => $genre['NAME'],
 	]);
-endforeach;
+}
 
 array_push($menu, [
 	'name' => 'favorite',
