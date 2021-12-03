@@ -73,18 +73,25 @@ function getMovieByID(mysqli $database, $id, $genres): array
 	$query .= "WHERE movie.ID = $id";
 	$result = mysqli_query($database, $query);
 	$row = mysqli_fetch_assoc($result);
-	$movie = [
-		'TITLE' => $row['TITLE'],
-		'ORIGINAL_TITLE' => $row['ORIGINAL_TITLE'],
-		'DESCRIPTION' => $row['DESCRIPTION'],
-		'DURATION' => $row['DURATION'],
-		'RELEASE_DATE' => $row['RELEASE_DATE'],
-		'GENRES' => genresIDToGenresName(explode(",", $row['GENRES_ID']), $genres),
-		'CAST' => actorIDToActorName(explode(",", $row['CAST']), $actors),
-		'DIRECTOR' => $row['NAME'],
-		'RATING' => $row['RATING'],
-		'AGE_RESTRICTION' => $row['AGE_RESTRICTION']
-	];
+	if (!empty($row))
+	{
+		$movie = [
+			'TITLE' => $row['TITLE'],
+			'ORIGINAL_TITLE' => $row['ORIGINAL_TITLE'],
+			'DESCRIPTION' => $row['DESCRIPTION'],
+			'DURATION' => $row['DURATION'],
+			'RELEASE_DATE' => $row['RELEASE_DATE'],
+			'GENRES' => genresIDToGenresName(explode(",", $row['GENRES_ID']), $genres),
+			'CAST' => actorIDToActorName(explode(",", $row['CAST']), $actors),
+			'DIRECTOR' => $row['NAME'],
+			'RATING' => $row['RATING'],
+			'AGE_RESTRICTION' => $row['AGE_RESTRICTION']
+		];
+	}
+	else
+	{
+		$movie = [];
+	}
 	return $movie;
 }
 

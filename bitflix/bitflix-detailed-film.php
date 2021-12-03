@@ -21,10 +21,11 @@ $database = connectDatabase(
 $genres = getGenres($database);
 require_once "./data/menu.php";
 $config += ['menu' => $menu];
-
-	$id = (int)$_GET['id'];
+if (isset($_GET['id']) && is_string($_GET['id']))
+{
+	$id = (int)htmlspecialchars($_GET['id']);
 	$currentMovie = getMovieByID($database, $id, $genres);
-	if ($currentMovie)
+	if (!empty($currentMovie))
 	{
 		$currentPage = "./res/pages/detailed-film.php";
 		$result = renderTemplate($currentPage, [
@@ -38,6 +39,12 @@ $config += ['menu' => $menu];
 		$currentPage = "./res/pages/movie404.php";
 		$result = renderTemplate($currentPage);
 	}
+}
+else
+{
+	$currentPage = "./res/pages/movie404.php";
+	$result = renderTemplate($currentPage);
+}
 
 renderLayout($result, [
 	'config' => $config

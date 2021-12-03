@@ -22,8 +22,17 @@ $genres = getGenres($database);
 require_once "./data/menu.php";
 $config += ['menu' => $menu];
 
-$currentMenuItem = $_GET['menuItem'] ?? 'main';
+$currentMenuItem = 'main';
+if (isset($_GET['menuItem']))
+{
+	if (is_string($_GET['menuItem']))
+	{
+		$currentMenuItem = htmlspecialchars($_GET['menuItem']);
+	}
+}
+
 $currentGenre = null;
+
 foreach ($genres as $key => $genre)
 {
 	if ($genre['CODE'] === $currentMenuItem)
@@ -32,9 +41,18 @@ foreach ($genres as $key => $genre)
 		break;
 	}
 }
+
 $movies = getMoviesByGenre($database, $genres, $currentGenre);
-$request = htmlspecialchars($_GET['request'] ?? "");
+
+$request = '';
+if (isset($_GET['request']))
+{
+	$request = $_GET['request'];
+	$request = (is_string($request)) ? htmlspecialchars($request) : '';
+}
+
 $movies = getMoviesByUserRequest($movies, $request);
+
 if (!empty($movies))
 {
 	$result = renderTemplate("./res/pages/main.php", [
